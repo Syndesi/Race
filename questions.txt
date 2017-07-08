@@ -1,0 +1,42 @@
+Daten:
+
+- URL: https://www.it-talents.de/content/foerderung/code-competition/code-competition-07-2017-2/races.csv
+
+
+MySQL:
+
+- csv         original data from the csv-file
+- races       id, race_created, race_driven, track_id, challenger, opponent, money, fuel_consumtion, winner, status, forecast_id
+- weather     all possible weather data (sunny, rainy, thundery, snowy)
+- forecast    place, actual weather, weather prediction
+- status
+
+- track       analyzed track-data
+- driver      analyzed driver-data
+
+
+Analyse:
+- Daten wurden generiert
+
+
+Fragen:
+
+- welche strecken wurden genutzt?
+- wie viele fahrer gibt es?
+- welche fahrer haben die meißten Rennen gefahren?
+- ist die Wettervorhersage zuverlässig?
+- ist die Wettervorhersage bei verschiedenen Strecken unterschiedlich?
+- wo liegt der durchschnittliche Kraftstoffverbrauch pro Strecke?
+- gibt es Fahrer mit über-/unterdurchschnittlichen Verbrauch?
+- wie oft werden Rennen nicht ageschlossen?
+- wer hat die meißten Rennen nicht abgeschlossen?
+- werden Rennen zugunsten der Wettervorhersage oder des eigentlichen Wetters abgebrochen?
+- wie oft werden Rennen nicht am geplanten Tag abgehalten?
+
+
+Vorhersage mit KI:
+
+- Abbruchwahrscheinlichkeit für Strecke S und Wetter W
+- Abbruchwahrscheinlichkeit für Strecke S und Wettervorhersage W1, W2, W3, W4
+- Gewinnvorhersage für Strecke S, Fahrer F1 und F2 sowie Wetter W und Wettervorhersage W1, W2, W3, W4
+- Verbrauchsvorhersage für Strecke S, Fahrer F sowie Wetter W und Wettervorhersage W1, W2, W3, W4
