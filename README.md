@@ -1,4 +1,4 @@
-# Race
+# IT-Talents: *Race*
 
 This is a project for the german code-competition ["Big Data Predictions"](https://www.it-talents.de/foerderung/code-competition/code-competition-07-2017) in July 2017, which gives it's participants a csv-file with over 160.000 entrys which then should be analyzed.
 
