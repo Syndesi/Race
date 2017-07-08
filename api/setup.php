@@ -1,14 +1,21 @@
 <?php
 
-$s = new setup();
+include_once 'lib.php';
+
+
+
+//$s = new setup();
+//$s->createTables();
+
+
+
 
 class setup{
 
-  $db = false;
+  private $db = false;
 
-  public function __construct($db){
-    $this->db = $db;
-    echo('hi');
+  public function __construct(){
+    $this->db = \lib\db();
   }
 
   public function createTables(){

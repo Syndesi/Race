@@ -1,0 +1,6 @@
+# change the URL so that PHP can read the requested API
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^((?s).*)$ api.php?__PATH=/$1 [QSA,NC,L]
+</IfModule>
