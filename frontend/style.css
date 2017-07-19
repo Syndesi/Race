@@ -1,0 +1,33 @@
+body {
+  font-family: 'Raleway', sans-serif;
+  color:#111;
+  background-color:#fff;
+  font-weight:400;
+  overflow-x:hidden;
+}
+
+a {
+  color:#247CFF;
+}
+
+a:hover {
+  color:#247CFF;
+  text-decoration:underline;
+  text-decoration-style:dotted;
+}
+
+p {
+  text-align:justify;
+}
+
+
+.site {
+  position:absolute;
+  left:50vw;
+  margin-left:-600px;
+  top:50px;
+}
+
+.site > .content {
+  width:1200px;
+}

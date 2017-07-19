@@ -1,6 +1,7 @@
 <?php
+namespace lib;
 
-function getDB(){
+function db(){
   $file = file_get_contents(__DIR__."/config.json");
   $json = json_decode($file, true);
   $db = false;

@@ -1,10 +1,9 @@
 <?php
 include_once 'lib.php';
-set_time_limit('15000');
 
 \lib\sendHeaders();
 $s = new setup();
-//$res = $s->setup();
+$res = $s->setup();
 
 
 
@@ -17,6 +16,14 @@ class setup{
   public function __construct(){
     $this->db = \lib\db();
     $this->createTables();
+
+    $this->pdoInsertRace = $this->db->prepare('INSERT INTO `race` (`id`, `race_created`, `race_driven`, `track_id`, `challenger`, `opponent`, `money`, `fuel_consumption`, `winner`, `status_id`, `forecast_id`, `weather_id`) VALUES (:id, :race_created, :race_driven, :track_id, :challenger, :opponent, :money, :fuel_consumption, :winner, :status_id, :forecast_id, :weather_id)');
+    $this->pdoGetStatusId = $this->db->prepare('SELECT * FROM `status` WHERE `status` = :status LIMIT 1');
+    $this->pdoSetStatusId = $this->db->prepare('INSERT INTO `status` (`id`, `status`) VALUES (NULL, :status)');
+    $this->pdoGetWeatherId = $this->db->prepare('SELECT * FROM `weather` WHERE `weather` = :weather LIMIT 1');
+    $this->pdoSetWeatherId = $this->db->prepare('INSERT INTO `weather` (`id`, `weather`) VALUES (NULL, :weather)');
+    $this->pdoGetForecastId = $this->db->prepare('SELECT * FROM `forecast` WHERE `sunny` = :sunny AND `rainy` = :rainy AND `thundery` = :thundery AND `snowy` = :snowy LIMIT 1');
+    $this->pdoSetForecastId = $this->db->prepare('INSERT INTO `forecast` (`id`, `sunny`, `rainy`, `thundery`, `snowy`) VALUES (NULL, :sunny, :rainy, :thundery, :snowy)');
   }
 
   /**
@@ -75,7 +82,7 @@ class setup{
   }
 
   public function insertRace($data){
-    $pdo = $this->db->prepare('INSERT INTO `race` (`id`, `race_created`, `race_driven`, `track_id`, `challenger`, `opponent`, `money`, `fuel_consumption`, `winner`, `status_id`, `forecast_id`, `weather_id`) VALUES (:id, :race_created, :race_driven, :track_id, :challenger, :opponent, :money, :fuel_consumption, :winner, :status_id, :forecast_id, :weather_id)');
+    $pdo = $this->pdoInsertRace;
     if($pdo->execute($data)){
       return $this->db->lastInsertId();
     }
@@ -96,13 +103,13 @@ class setup{
    * @return int          the id of the status-entry
    */
   public function getStatusId($status){
-    $pdo = $this->db->prepare('SELECT * FROM `status` WHERE `status` = :status LIMIT 1');
+    $pdo = $this->pdoGetStatusId;
     $pdo->execute(['status' => $status]);
     $res = $pdo->fetch(\PDO::FETCH_ASSOC);
     if($res){
       return $res['id'];
     } else {
-      $pdo2 = $this->db->prepare('INSERT INTO `status` (`id`, `status`) VALUES (NULL, :status)');
+      $pdo2 = $this->pdoSetStatusId;
       if($pdo2->execute(['status' => $status])){
         return $this->db->lastInsertId();
       }
@@ -116,13 +123,13 @@ class setup{
    * @return int          the id of the weather-entry
    */
   public function getWeatherId($weather){
-    $pdo = $this->db->prepare('SELECT * FROM `weather` WHERE `weather` = :weather LIMIT 1');
+    $pdo = $this->pdoGetWeatherId;
     $pdo->execute(['weather' => $weather]);
     $res = $pdo->fetch(\PDO::FETCH_ASSOC);
     if($res){
       return $res['id'];
     } else {
-      $pdo2 = $this->db->prepare('INSERT INTO `weather` (`id`, `weather`) VALUES (NULL, :weather)');
+      $pdo2 = $this->pdoSetWeatherId;
       if($pdo2->execute(['weather' => $weather])){
         return $this->db->lastInsertId();
       }
@@ -139,14 +146,14 @@ class setup{
    * @return int           the id of the forecast-entry
    */
   public function getForecastId($data){
-    $pdo = $this->db->prepare('SELECT * FROM `forecast` WHERE `sunny` = :sunny AND `rainy` = :rainy AND `thundery` = :thundery AND `snowy` = :snowy LIMIT 1');
+    $pdo = $this->pdoGetForecastId;
     $data = $this->distributeValues($data);
     $pdo->execute($data);
     $res = $pdo->fetch(\PDO::FETCH_ASSOC);
     if($res){
       return $res['id'];
     } else {
-      $pdo2 = $this->db->prepare('INSERT INTO `forecast` (`id`, `sunny`, `rainy`, `thundery`, `snowy`) VALUES (NULL, :sunny, :rainy, :thundery, :snowy)');
+      $pdo2 = $this->pdoSetForecastId;
       if($pdo2->execute($data)){
         return $this->db->lastInsertId();
       }
