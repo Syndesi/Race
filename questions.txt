@@ -3,6 +3,9 @@ Daten:
 - URL: https://www.it-talents.de/content/foerderung/code-competition/code-competition-07-2017-2/races.csv
 
 
+Will it run on Windows 32?
+
+
 MySQL:
 
 - csv         original data from the csv-file
