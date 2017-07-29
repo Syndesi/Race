@@ -1,0 +1,76 @@
+.bar {
+  position:fixed;
+  top:0px;
+  left:0px;
+  right:0px;
+  height:$barHeight;
+  background-color:$cBarBackground;
+  color:$cWhite;
+  > .centered {
+    position:absolute;
+    top:0px;
+    left:calc(50% - #{$siteWidth / 2});
+    bottom:0px;
+    width:1200px;
+    padding:0px $gap;
+  }
+  a {
+    color:inherit;
+    @include transition(color);
+    text-decoration:none;
+    &:hover {
+      color:$cActive;
+    }
+  }
+  .title {
+    line-height:$barHeight;
+    font-size:$barHeight * 0.6;
+    font-weight:200;
+    > span {
+      font-style:italic;
+    }
+  }
+  .link {
+    float:right;
+    height:$barHeight;
+    margin-left:$gap;
+    p {
+      float:left;
+      line-height:$barHeight;
+      font-size:$barHeight * 0.4;
+      font-weight:300;
+      padding:0px;
+    }
+    > svg {
+      float:left;
+      height:30px;
+      width:auto;
+      margin:10px;
+      pointer-events:none;
+      > path {
+        fill:$cWhite;
+        @include transition(fill);
+      }
+    }
+    &:hover > svg > path {
+      fill:$cActive;
+    }
+  }
+}
+
+
+
+
+@media screen and (max-width:$siteWidth){
+  .bar > .centered {
+    left:0px;
+    width:100%;
+  }
+}
+
+@media only print{
+  .bar > .centered {
+    left:0px;
+    width:100%;
+  }
+}

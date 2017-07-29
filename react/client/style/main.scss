@@ -1,0 +1,60 @@
+@import './variables.scss';
+@import './html.scss';
+
+@import './components/bar.scss';
+@import './components/button.scss';
+@import './components/progressBar.scss';
+@import './components/panel.scss';
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0px;
+  padding:0px;
+  position:relative;
+  overflow-x:hidden;
+  background-color:#FFF;
+  font-family:'Fira Sans', sans-serif;
+  line-height:1.2;
+}
+
+
+
+
+
+
+
+
+.page {
+  position:absolute;
+  top:$barHeight + $gap;
+  left:calc(50% - #{$siteWidth / 2});
+  width:$siteWidth;
+  min-height:100px;
+  background-color:$cWhite;
+  border:1px solid $cGray;
+  border-radius:$radius;
+  padding:$gap;
+}
+
+@media screen and (max-width:$siteWidth) {
+  .page {
+    top:$barHeight + $gap;
+    left:0px;
+    width:100%;
+    border:0;
+    border-radius:0px;
+  }
+}
+
+@media only print {
+  .page {
+    top:$barHeight + $gap;
+    left:0px;
+    width:100%;
+    border:0;
+    border-radius:0px;
+  }
+}

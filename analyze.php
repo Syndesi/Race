@@ -4,6 +4,7 @@ set_time_limit('15000');
 
 \lib\sendHeaders();
 $a = new analyze();
+$res = $a->getTracks();
 //$res = $a->lessSteps($a->getFuelConsumption(), 10);
 //$res = $a->toChartist($a->lessSteps($a->getFuelConsumption(), 100));
 //$res = $a->getFuelConsumption();

@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>IT Talents 2017</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:200,200i,300,300i,400,400i" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page" style="display:none">
+      <h1>Race :D</h1>
+      <h1>Race :D</h1>
+      <h1>Race :D</h1>
+      <div class="progressBar">
+        <div class="bar"></div>
+      </div>
+      <hr>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+      <hr>
+      <p>Verwendete Quellen:</p>
+      <ul>
+        <li><a href="https://www.flaticon.com/free-icon/github-logo_25231">Github-Icon</a> by <a href="https://www.flaticon.com/authors/dave-gandy">Dave Gandy</a>, <a href="https://creativecommons.org/licenses/by/3.0/de/">CC 3.0 BY</a></li>
+      </ul>
+    </div>
+    <div id="app">
+      
+    </div>
+    <div id="app3" class="panel popup" style="display:none">
+      <div class="title">
+        <h1>Setup</h1>
+        <p class="step">2/3</p>
+      </div>
+      <div class="content">
+        <p>Derzeit importiert die Software sämtliche Datensätze in die bereitgestellte MySQL-Datenbank.</p>
+        <p>Fortschritt: <span id="progress">{{progressPercent}}</span>
+        <br>Verbleibend: <span id="progress">83 min</span></p>
+        {{message}}
+      </div>
+      <div class="down">
+        <button v-on:click="previous" class="red">zurück</button>
+        <button v-on:click="next" class="blue">weiter</button>
+      </div>
+    </div>
+  </body>
+</html>

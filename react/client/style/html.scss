@@ -1,0 +1,34 @@
+h1, h2, h3, h4, h5, h6, p {
+  margin:0px;
+  padding:0px;
+}
+
+h1, h2, h3, h4 {
+  font-weight:300;
+}
+
+p {
+  font-size:18px;
+  text-align:justify;
+  padding:($gap / 2) 0px;
+}
+
+a {
+  color:$cActive;
+  text-decoration:none;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration:underline;
+    text-decoration-style:dotted;
+  }
+}
+
+hr {
+  float:left;
+  width:100%;
+  height:1px;
+  background-color:$cGray;
+  border:0;
+  margin:$gap 0px;
+}

@@ -1,0 +1,65 @@
+.panel {
+  float:left;
+  width:100%;
+  background-color:$cWhite;
+  border:1px solid $cGray;
+  border-radius:$radius;
+  &.popup {
+    position:fixed;
+    top:40%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:500px;
+    min-height:100px;
+    z-index:100000;
+  }
+  > .title,
+  > .down,
+  > .content {
+    float:left;
+    width:100%;
+  }
+  > .title {
+    height:$barHeight;
+    padding:0px $gap;
+    border-bottom:1px solid $cGray;
+    > h1 {
+      float:left;
+      line-height:$barHeight;
+      padding:0px;
+      font-size:$barHeight * 0.6;
+    }
+    > .step {
+      float:right;
+      line-height:$barHeight;
+      padding:0px;
+      font-size:$barHeight * 0.4;
+      font-weight:300;
+    }
+  }
+  > .content {
+    padding:($gap / 2) $gap;
+  }
+  > .down {
+    height:$barHeight;
+    border-top:1px solid $cGray;
+    padding:$gap ($gap / 2);
+    display:flex;
+    > * {
+      flex-grow:1;
+    }
+  }
+}
+
+@media screen and (max-width:$siteWidth){
+  .panel.popup {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    min-height:100%;
+    transform:none;
+    border:0;
+    border-radius:0px;
+  }
+}

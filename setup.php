@@ -5,6 +5,7 @@ set_time_limit('15000');
 \lib\sendHeaders();
 $s = new setup();
 //$res = $s->setup();
+$res = $s->setDB();
 
 
 
@@ -167,6 +168,18 @@ class setup{
       }
     }
     return $a;
+  }
+
+  public function setDB(){
+    $host = '';
+    $database = '';
+    $username = '';
+    $password = '';
+    if(new \PDO('mysql:host='.$host.';dbname='.$database.';charset=utf8;', $username, $password)){
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**

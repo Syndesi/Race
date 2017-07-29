@@ -1,0 +1,42 @@
+button {
+  float:left;
+  height:30px;
+  border:1px solid $cGray;
+  border-radius:3px;
+  padding:0px $gap;
+  margin:0px ($gap / 2);
+  background-color:$cWhite;
+  cursor:pointer;
+  line-height:30px;
+  text-align:center;
+  font-size:16px;
+  font-weight:300;
+  color:$cGray;
+  transition:all 0.2s ease-in-out;
+}
+button:hover,
+button:active,
+button.active {
+  border-color:$cGray;
+  background-color:$cGray;
+  color:$cWhite;
+}
+
+@mixin coloredButton($n, $c){
+  button.#{$n}{
+    border-color:$c;
+    color:$c;
+  }
+  button.#{$n}:hover,
+  button.#{$n}:active,
+  button.#{$n}.active {
+    border-color:$c;
+    background-color:$c;
+    color:$cWhite;
+  }
+}
+
+@include coloredButton('black', $cBlack);
+@include coloredButton('blue', $cActive);
+@include coloredButton('red', $cRed);
+@include coloredButton('green', $cGreen);

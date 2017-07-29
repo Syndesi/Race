@@ -2,8 +2,8 @@
   "db": {
     "host": "localhost",
     "database": "race",
-    "username": "username",
-    "password": "password"
+    "username": "race",
+    "password": "bHQQg6sS13QbnnBD"
   },
   "setupCompleted": false
 }
