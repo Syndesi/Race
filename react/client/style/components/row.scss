@@ -1,0 +1,10 @@
+.row {
+  float:left;
+  width:100%;
+  margin:0px;
+  padding:0px;
+  display:flex;
+  > * {
+    flex:1 1 50%;
+  }
+}

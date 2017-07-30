@@ -4,8 +4,7 @@ import _ from 'lodash';
 
 class Store {
 
-  @observable apiURL = "http://localhost/mango5777/api/";
-  @observable history = null;
+  @observable url = "http://localhost/Race/";
   @observable s = 0;
 
   constructor(){
@@ -17,22 +16,6 @@ class Store {
   clock(){
     var d = new Date();
     this.s = d.getSeconds();
-    console.log(this.s);
-  }
-
-  loadLang(code){
-    var self = this;
-    axios.get(self.apiURL+'lang/get&lang='+code)
-    .then(function(res){
-      if(res.data.status == 'OK'){
-        self.lang = res.data.result;
-        console.log('Language ['+res.data.result.code+'] loaded.');
-        console.log(self.getL('registerDescription'));
-      }
-    })
-    .catch(function(res){
-      console.log('Language couldn´t be loaded.');
-    });
   }
 }
 

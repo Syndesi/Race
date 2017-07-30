@@ -1,0 +1,16 @@
+# set some standard values
+AddDefaultCharset UTF-8
+DefaultLanguage en-US
+
+
+# change the URL so that PHP can read the requested API
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^((?s).*)$ api.php?__PATH=/$1 [QSA,NC,L]
+</IfModule>
+
+<FilesMatch "config.json|composer.lock|composer.json|.gitignore">
+  Order allow,deny
+  Deny from all
+</FilesMatch>

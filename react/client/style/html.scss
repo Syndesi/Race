@@ -1,6 +1,12 @@
 h1, h2, h3, h4, h5, h6, p {
   margin:0px;
-  padding:0px;
+  padding:$gap / 2;
+  &.error {
+    color:$cRed;
+  }
+  &.ok {
+    color:$cActive;
+  }
 }
 
 h1, h2, h3, h4 {
@@ -10,7 +16,6 @@ h1, h2, h3, h4 {
 p {
   font-size:18px;
   text-align:justify;
-  padding:($gap / 2) 0px;
 }
 
 a {
@@ -31,4 +36,24 @@ hr {
   background-color:$cGray;
   border:0;
   margin:$gap 0px;
+}
+
+input {
+  height:26px;
+  background-color:transparent;
+  border:0;
+  border-bottom:2px solid $cGray;
+  padding:0px ($gap / 2);
+  margin:2px ($gap / 2);
+  line-height:26px;
+  font-size:14px;
+  font-weight:300;
+  font-family:'Fira Mono', monospace;
+  @include transition(all);
+  &:hover,
+  &:focus,
+  &.active {
+    border-bottom-color:$cActive;
+    background-color:$cInputBg;
+  }
 }

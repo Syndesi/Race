@@ -27,18 +27,20 @@
       float:left;
       line-height:$barHeight;
       padding:0px;
+      margin:0px;
       font-size:$barHeight * 0.6;
     }
     > .step {
       float:right;
       line-height:$barHeight;
       padding:0px;
+      margin:0px;
       font-size:$barHeight * 0.4;
       font-weight:300;
     }
   }
   > .content {
-    padding:($gap / 2) $gap;
+    padding:$gap / 2;
   }
   > .down {
     height:$barHeight;
@@ -47,6 +49,7 @@
     display:flex;
     > * {
       flex-grow:1;
+      flex-basis:0;
     }
   }
 }

@@ -23,6 +23,8 @@
     }
   }
   .title {
+    float:left;
+    height:$barHeight;
     line-height:$barHeight;
     font-size:$barHeight * 0.6;
     font-weight:200;

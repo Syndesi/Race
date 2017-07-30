@@ -1,9 +1,9 @@
 {
-  "db": {
-    "host": "localhost",
-    "database": "race",
-    "username": "race",
-    "password": "bHQQg6sS13QbnnBD"
-  },
-  "setupCompleted": false
+    "db": {
+        "host": "localhost",
+        "database": "syndesirace",
+        "username": "test123",
+        "password": "KMZX4BomRyI1OJxH"
+    },
+    "setupCompleted": false
 }

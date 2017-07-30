@@ -1,9 +1,9 @@
 .progressBar {
   float:left;
   position:relative;
-  width:100%;
+  width:calc(100% - #{$gap});
   height:$gap;
-  margin:($gap / 2) 0px;
+  margin:($gap / 2);
   border-radius:$gap / 2;
   border:1px solid $cGray;
   background-color:$cLightGray;
@@ -15,6 +15,6 @@
     bottom:0px;
     width:0%;
     background-color:$cActive;
-    @include transition(width);
+    /*@include transition(width);*/
   }
 }
